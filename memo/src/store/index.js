@@ -36,7 +36,6 @@ export default new Vuex.Store({
           return memo
         }
         console.error('memo not found')
-        return CONSTANTS.ERROR_MEMO
       }
     }
   },
@@ -62,7 +61,7 @@ export default new Vuex.Store({
         state.memos[index].million = !state.memos[index].million
       }
     },
-    //idで指定したメモのプラットフォーム配列を操作する　同じ要素であれば削除　なければ追加
+    //idで指定したメモのプラットフォーム配列を操作する同じ要素であれば削除なければ追加
     togglePlatform (state, payload) {
       var index = state.memos.findIndex(memo => memo.id === payload.id)
       if (index !== -1) {
