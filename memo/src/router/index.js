@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import MemoList from '@/pages/MemoList'
 import MemoDetails from '@/pages/MemoDetails'
 import HelloWorld from '@/pages/HelloWorld'
@@ -21,14 +20,7 @@ const routes = [
       title: 'hello world'
     }
   },
-  {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  },
+
   {
     path: '/memo-list',
     name: 'MemoList',
@@ -101,16 +93,16 @@ const router = new VueRouter({
   }
 })
 
-//グローバル　beforeガード
+//グローバルbeforeガード
 router.beforeEach((to, from, next) => {
-  //to: route:　次にナビゲーションされる対象のルートオブジェクト
+  //to: route:次にナビゲーションされる対象のルートオブジェクト
   //from: route: ナビゲーションされる前の現在のルート
-  //next: function: フックを解決するためにこの関数を呼ぶ必要がある
+  //next: function:フックを解決するためにこの関数を呼ぶ必要がある
   next()
 })
 
-//グローバル afterガード
-router.afterEach((to, from) => {
+//グローバルafterガード
+router.afterEach((to) => {
   if (to.meta && to.meta.title) {
     if (to.params && to.params.id) {
       document.title = `${to.meta.title} # ${to.params.id}`
