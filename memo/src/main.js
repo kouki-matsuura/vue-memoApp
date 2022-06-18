@@ -12,8 +12,27 @@ Vue.config.productionTip = false
 Vue.use(moment)
 Vue.use(BootstrapVue)
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
+Vue.mixin({
+  methods: {
+  },
+  computed: {
+    routeInfo: {
+      get() {
+        return `${this.$route.name} : ${this.$route.path}`
+      }
+    }
+  }
+})
+
+/*new Vue({
+  el: '#app',
+  'router' : router,
+  'store' : store,
+  components: { App },
+  template: '<App/>'
+})*/
+new Vue ({
+  'router' : router,
+  'store' : store,
+  render: h => h(App),
 }).$mount('#app')
