@@ -25,8 +25,10 @@
         methods: {
             addMemo () {
                 if (!this.memo.title || !this.memo.discription) {
+                    console.log("aaa");
                     return
                 }
+                console.log("bbb");
                 this.memo.platforms = []
                 this.memo.million = false
                 this.memo.releasedAt = new Date()
