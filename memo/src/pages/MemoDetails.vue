@@ -82,7 +82,7 @@ export default {
     },
     computed: {
         memo () {
-           return this.$store.getter['memos/byId'](this.targetId)
+           return this.$store.getters['memos/byId'](this.targetId)
         },
         platforms () {
             return CONSTANTS.PLATFORMS

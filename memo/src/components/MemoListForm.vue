@@ -24,7 +24,9 @@
         },
         methods: {
             addMemo () {
-                if (!this.memo.title || !this.memo.discription) {
+                console.log("this.memo.title:"+ this.memo.title);
+                console.log("memodiscripption:" + this.memo.description);
+                if (this.memo.title==="" || this.memo.description === "") {
                     console.log("aaa");
                     return
                 }
